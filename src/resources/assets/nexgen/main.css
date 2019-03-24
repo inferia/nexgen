@@ -1,0 +1,20 @@
+/* html, body {
+	background-color: #1B1B1B;
+} */
+
+.taskbar {
+	-webkit-user-select: none;
+	-webkit-app-region: drag;
+}
+
+.card-title	{
+	color: #ffffff;
+}
+
+.card {
+	background: #2A2A2A;
+}
+
+/* p {
+	color: #FFFFFF;
+} */

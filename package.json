@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "@types/node": "^11.11.3",
+    "nodemon": "^1.18.10",
+    "typescript": "^3.3.3333"
+  },
+  "scripts": {
+    "start": "electron dist/Index.js",
+    "tsc": "tsc -w -p tsconfig.json",
+    "sw": "nodemon --exec \"electron dist/Index.js\" ."
+  },
+  "dependencies": {
+    "electron": "^4.1.1"
+  }
+}
