@@ -1,8 +1,8 @@
 import * as express from 'express';
 
 export const allowOnlyUsers = (
-    req: express.Request, 
-    res: express.Response, 
+    req: express.Request,
+    res: express.Response,
     next: express.NextFunction
 ) => {
     if (req.user) return next();
@@ -20,4 +20,3 @@ export const allowOnlyGuests = (
 
     next();
 };
-
