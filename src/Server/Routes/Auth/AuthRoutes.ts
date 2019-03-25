@@ -20,9 +20,14 @@ AuthRoute.get('/callback',  (req, res, next) => {
             const returnTo = req.session.returnTo;
             delete req.session.returnTo;
 
-            res.redirect(returnTo || '/');
+            res.redirect(returnTo || '/user/dashboard');
         });
     })(req, res, next);
+});
+
+AuthRoute.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
 });
 
 export default AuthRoute;

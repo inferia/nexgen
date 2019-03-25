@@ -1,0 +1,29 @@
+{% extends 'App/Main.twig' %}
+
+{% block content %}
+	<div class="ui one column grid">
+		<div class="column">
+			<div class="ui card fluid">
+				<div class="content">
+					<div class="ui breadcrumb">
+						<a class="section" href="/user/dashboard">Dashboard</a>
+						<i class="right angle icon divider"></i>
+						<a class="section">Modules</a>
+						<i class="right angle icon divider"></i>
+						<div class="active section">Create</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ui segment">
+		<form class="ui form">
+			<h4 class="ui dividing header">New Module</h4>
+			<div class="field">
+				<label>Name</label>
+				<input type="text" name="module" placeholder="1 Mark" required>
+			</div>
+			<button class="ui button" type="submit">Submit</button>
+		</form>
+	</div>
+{% endblock %}

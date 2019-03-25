@@ -5,7 +5,9 @@ const UserDashboard = (
 	res: Response, 
 	next: NextFunction
 ) => {
-	
+	const { ...userProfile } = req.user;
+
+	res.render('dashboard')
 };
 
 export default UserDashboard;
