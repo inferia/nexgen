@@ -1,9 +1,11 @@
 import * as dotenv from 'dotenv';
+import User from '../Database/Models/User';
 
 dotenv.config();
 
 import * as passport from 'passport';
 import * as Auth0Strategy from 'passport-auth0';
+import { isNull } from 'util';
 
 // @ts-ignore
 const strategy: passport.Strategy = new Auth0Strategy(
@@ -20,7 +22,28 @@ const strategy: passport.Strategy = new Auth0Strategy(
         extraParams, 
         profile: passport.Profile, 
         done: CallableFunction
-    ) => done(null, profile)
+    ) => {
+        //@ts-ignore
+        User.where('auth0_id', profile.id)
+            .findOne()
+            .then(res => {
+                if (! isNull(res)) {
+                    return done(null, {...profile, _id: res._id});
+                }
+
+                User.create({
+                    auth0_id: profile.id,
+                    //@ts-ignore
+                    email: profile._json.email,
+                    //@ts-ignore
+                    picture: profile._json.picture,
+                    //@ts-ignore
+                    username: profile._json.nickname
+                }).then(document => done(null, {...profile, _id: document._id}))
+                .catch(console.log);
+            })
+            .catch(console.log)
+    }
 );
 
 passport.use(strategy);

@@ -4,10 +4,6 @@ const UserDashboard = (
 	req: Request, 
 	res: Response, 
 	next: NextFunction
-) => {
-	const { ...userProfile } = req.user;
-
-	res.render('dashboard')
-};
+) => res.render('dashboard');
 
 export default UserDashboard;

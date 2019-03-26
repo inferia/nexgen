@@ -10,6 +10,7 @@
     "@types/passport": "^1.0.0",
     "@types/passport-auth0": "^1.0.2",
     "@types/twig": "^1.12.2",
+    "@types/validator": "^10.9.0",
     "nodemon": "^1.18.10",
     "typescript": "^3.3.3333"
   },
@@ -26,6 +27,7 @@
     "mongoose": "^5.4.19",
     "passport": "^0.4.0",
     "passport-auth0": "^1.1.0",
-    "twig": "^1.13.2"
+    "twig": "^1.13.2",
+    "validator": "^10.11.0"
   }
 }
