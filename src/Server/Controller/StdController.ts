@@ -18,7 +18,7 @@ export const processCreate = (
 			user_id: req.user._id,
 			user_auth0_id: req.user.id,
 			name: req.body.std
-		}).then(document => res.json({done: 'lol'}))
+		}).then(document => res.redirect('/std/show'))
 		.catch(console.log);
 	}
 
@@ -30,6 +30,6 @@ export const listSTD = (
 	res: Response
 ) => {
 	return STD.where('user_auth0_id', req.user.id).find().then(document => {
-		res.json(document);
+		res.render('STD/Show', { documents: document });
 	}).catch(console.log);
 };

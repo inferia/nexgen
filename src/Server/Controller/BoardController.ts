@@ -18,7 +18,7 @@ export const processCreate = (
 			user_id: req.user._id,
 			user_auth0_id: req.user.id,
 			name: req.body.board
-		}).then(boardDone => res.json({done: 'lol'}))
+		}).then(boardDone => res.redirect('/board/show'))
 		.catch(console.log);
 	}
 
@@ -30,6 +30,6 @@ export const listBoards = (
 	res: Response
 ) => {
 	return Board.where('user_auth0_id', req.user.id).find().then(document => {
-		res.json(document);
+		res.render('Board/Show', { documents: document });
 	}).catch(console.log);
 };

@@ -18,7 +18,7 @@ export const processCreate = (
 			user_id: req.user._id,
 			user_auth0_id: req.user.id,
 			name: req.body.subject
-		}).then(document => res.json({done: 'lol'}))
+		}).then(document => res.redirect('/subject/show'))
 		.catch(console.log);
 	}
 
@@ -29,7 +29,7 @@ export const listSubjects = (
 	req: Request,
 	res: Response
 ) => {
-	Subject.where('user_auth0_id', req.user.id).find().then(document => {
-		res.json(document);
+	return Subject.where('user_auth0_id', req.user.id).find().then(document => {
+		res.render('Subject/Show', { documents: document });
 	}).catch(console.log);
 };

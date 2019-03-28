@@ -18,7 +18,7 @@ export const processCreate = (
 			user_id: req.user._id,
 			user_auth0_id: req.user.id,
 			name: req.body.module
-		}).then(document => res.json({done: 'lol'}))
+		}).then(document => res.redirect('/module/show'))
 		.catch(console.log);
 	}
 
@@ -30,6 +30,6 @@ export const listModules = (
 	res: Response
 ) => {
 	return Module.where('user_auth0_id', req.user.id).find().then(document => {
-		res.json(document);
+		res.render('Module/Show', { documents: document });
 	}).catch(console.log);
 };
