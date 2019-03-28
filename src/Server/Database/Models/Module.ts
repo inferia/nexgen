@@ -11,7 +11,7 @@ const ModuleSchema = new Schema({
 		required: true
 	},
 	name: {
-		type: String,
+		type: Number,
 		required: true
 	}
 });

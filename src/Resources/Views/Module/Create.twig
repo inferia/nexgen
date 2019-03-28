@@ -17,11 +17,12 @@
 		</div>
 	</div>
 	<div class="ui segment">
-		<form class="ui form">
+		<form class="ui form" method="POST" action="/module/create">
 			<h4 class="ui dividing header">New Module</h4>
 			<div class="field">
-				<label>Name</label>
-				<input type="text" name="module" placeholder="1 Mark" required>
+				<label>Marks</label>
+				<p class="subtitle">Enter 5 if you are creating a 5 Mark Module</p>
+				<input type="text" name="module" placeholder="1" required>
 			</div>
 			<button class="ui button" type="submit">Submit</button>
 		</form>
