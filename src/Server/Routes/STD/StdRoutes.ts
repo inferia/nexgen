@@ -1,4 +1,4 @@
-import { showCreate, processCreate } from '../../Controller/StdCreate';
+import { showCreate, processCreate } from '../../Controller/StdController';
 import { allowOnlyUsers } from '../../Middleware/Gate';
 import { Router } from 'express';
 
