@@ -1,49 +1,49 @@
 {% extends 'App/Main.twig' %}
 
 {% block content %}
-	<div class="ui one column grid">
-		<div class="column">
-			<div class="ui card fluid">
-				<div class="content">
-					<div class="ui breadcrumb">
-						<a class="section" href="/user/dashboard">Dashboard</a>
-						<i class="right angle icon divider"></i>
-						<a class="section">STDs</a>
-						<i class="right angle icon divider"></i>
-						<div class="active section">Show</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	{% if documents %}
-		<div class="ui segment">
-			<table class="ui celled table">
-				<thead>
-					<tr>
-						<th class="twelve wide">Name</th>
-						<th class="two wide">Edit</th>
-						<th class="two wide">Delete</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for document in documents %}
-						<tr>
-							<td data-label="Name">{{ document.name }}</td>
-							<td data-label="Edit"><i class="edit icon blue"></i></td>
-							<td data-label="Delete"><i class="trash icon red"></i></td>
-						</tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		</div>
-	{% else %}
-		<div class="ui placeholder segment">
-			<div class="ui icon header">
-				<i class="pdf file outline icon"></i>
-				There are no STDs created by you
-			</div>
-			<a href="/std/create" class="ui primary button">Create STD</a>
-		</div>
-	{% endif %}
+    <div class="ui one column grid">
+        <div class="column">
+            <div class="ui card fluid">
+                <div class="content">
+                    <div class="ui breadcrumb">
+                        <a class="section" href="/user/dashboard">Dashboard</a>
+                        <i class="right angle icon divider"></i>
+                        <a class="section">STDs</a>
+                        <i class="right angle icon divider"></i>
+                        <div class="active section">Show</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if documents %}
+        <div class="ui segment">
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th class="twelve wide">Name</th>
+                        <th class="two wide">Edit</th>
+                        <th class="two wide">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for document in documents %}
+                        <tr>
+                            <td data-label="Name">{{ document.name }}</td>
+                            <td data-label="Edit"><i class="edit icon blue"></i></td>
+                            <td data-label="Delete"><i class="trash icon red"></i></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="ui placeholder segment">
+            <div class="ui icon header">
+                <i class="pdf file outline icon"></i>
+                There are no STDs created by you
+            </div>
+            <a href="/std/create" class="ui primary button">Create STD</a>
+        </div>
+    {% endif %}
 {% endblock %}

@@ -2,18 +2,18 @@ import mongoose from './../Mongoose';
 import { Schema } from 'mongoose';
 
 const ModuleSchema = new Schema({
-	user_id: {
-		type: String,
-		required: true
-	},
-	user_auth0_id: {
-		type: String,
-		required: true
-	},
-	name: {
-		type: Number,
-		required: true
-	}
+    user_id: {
+        type: String,
+        required: true
+    },
+    user_auth0_id: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: Number,
+        required: true
+    }
 });
 
 const Module = mongoose.model('Module', ModuleSchema);

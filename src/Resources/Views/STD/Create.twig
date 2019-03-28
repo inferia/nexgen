@@ -1,30 +1,30 @@
 {% extends 'App/Main.twig' %}
 
 {% block content %}
-	<div class="ui one column grid">
-		<div class="column">
-			<div class="ui card fluid">
-				<div class="content">
-					<div class="ui breadcrumb">
-						<a class="section" href="/user/dashboard">Dashboard</a>
-						<i class="right angle icon divider"></i>
-						<a class="section">STD</a>
-						<i class="right angle icon divider"></i>
-						<div class="active section">Create</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="ui segment">
-		<form class="ui form" method="POST" action="/std/create">
-			<h4 class="ui dividing header">New STD</h4>
-			<div class="field">
-				<label>Name</label>
-				<p class="subtitle">Enter 10 if you are creating a 10th standard</p>
-				<input type="text" name="std" placeholder="10th STD" required>
-			</div>
-			<button class="ui button" type="submit">Submit</button>
-		</form>
-	</div>
+    <div class="ui one column grid">
+        <div class="column">
+            <div class="ui card fluid">
+                <div class="content">
+                    <div class="ui breadcrumb">
+                        <a class="section" href="/user/dashboard">Dashboard</a>
+                        <i class="right angle icon divider"></i>
+                        <a class="section">STD</a>
+                        <i class="right angle icon divider"></i>
+                        <div class="active section">Create</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui segment">
+        <form class="ui form" method="POST" action="/std/create">
+            <h4 class="ui dividing header">New STD</h4>
+            <div class="field">
+                <label>Name</label>
+                <p class="subtitle">Enter 10 if you are creating a 10th standard</p>
+                <input type="text" name="std" placeholder="10th STD" required>
+            </div>
+            <button class="ui button" type="submit">Submit</button>
+        </form>
+    </div>
 {% endblock %}
