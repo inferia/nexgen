@@ -24,3 +24,12 @@ export const processCreate = (
 
 	return res.status(500).json({die: 'lol'});
 };
+
+export const listModules = (
+	req: Request,
+	res: Response
+) => {
+	return Module.where('user_auth0_id', req.user.id).find().then(document => {
+		res.json(document);
+	}).catch(console.log);
+};

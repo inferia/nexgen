@@ -9,7 +9,10 @@ export const showCreate = (
 	res.render('Board/Create');
 };
 
-export const processCreate = (req: Request, res: Response) => {
+export const processCreate = (
+	req: Request,
+	res: Response
+) => {
 	if (req.body.board && validator.isAlphanumeric(req.body.board) && req.body.board.length > 3) {
 		return Board.create({
 			user_id: req.user._id,
@@ -20,4 +23,13 @@ export const processCreate = (req: Request, res: Response) => {
 	}
 
 	return res.status(500).json({ nah: 'lol' });
+};
+
+export const listBoards = (
+	req: Request,
+	res: Response
+) => {
+	return Board.where('user_auth0_id', req.user.id).find().then(document => {
+		res.json(document);
+	}).catch(console.log);
 };

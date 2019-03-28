@@ -24,3 +24,12 @@ export const processCreate = (
 
 	return res.status(500).json({nah: 'lol'});
 };
+
+export const listSubjects = (
+	req: Request,
+	res: Response
+) => {
+	Subject.where('user_auth0_id', req.user.id).find().then(document => {
+		res.json(document);
+	}).catch(console.log);
+};
