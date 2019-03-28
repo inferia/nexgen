@@ -3,9 +3,9 @@ import User from '../Database/Models/User';
 
 dotenv.config();
 
+import { isNull } from 'util';
 import * as passport from 'passport';
 import * as Auth0Strategy from 'passport-auth0';
-import { isNull } from 'util';
 
 // @ts-ignore
 const strategy: passport.Strategy = new Auth0Strategy(
