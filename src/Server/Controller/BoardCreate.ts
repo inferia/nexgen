@@ -1,6 +1,6 @@
-import { Request, Response, response } from 'express';
-import * as validator from 'validator';
 import Board from '../Database/Models/Board';
+import { Request, Response } from 'express';
+import * as validator from 'validator';
 
 export const showCreate = (
 	req: Request,
@@ -19,5 +19,5 @@ export const processCreate = (req: Request, res: Response) => {
 		.catch(console.log);
 	}
 
-	return res.json({die: 'lol'});
+	return res.status(500).json({ nah: 'lol' });
 };
