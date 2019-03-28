@@ -1,6 +1,6 @@
-import { Router } from 'express';
-import { allowOnlyUsers } from '../../Middleware/Gate';
 import { showCreate, processCreate } from './../../Controller/BoardCreate';
+import { allowOnlyUsers } from '../../Middleware/Gate';
+import { Router } from 'express';
 
 const BoardRoutes: Router = Router();
 

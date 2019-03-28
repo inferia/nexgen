@@ -1,6 +1,6 @@
-import { Router } from 'express';
-import { allowOnlyUsers } from '../../Middleware/Gate';
 import UserDashboard from '../../Controller/UserDashboard';
+import { allowOnlyUsers } from '../../Middleware/Gate';
+import { Router } from 'express';
 
 const UserRoutes: Router = Router();
 

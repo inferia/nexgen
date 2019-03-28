@@ -1,11 +1,11 @@
-import { Router } from 'express';
+import { showCreate, processCreate } from '../../Controller/SubjectCreate';
 import { allowOnlyUsers } from '../../Middleware/Gate';
-import { showCreate } from '../../Controller/SubjectCreate';
+import { Router } from 'express';
 
 const SubjectRoutes: Router = Router();
 
 SubjectRoutes.get('/create', allowOnlyUsers, showCreate);
-SubjectRoutes.post('/create', allowOnlyUsers);
+SubjectRoutes.post('/create', allowOnlyUsers, processCreate);
 
 SubjectRoutes.get('/show', allowOnlyUsers);
 

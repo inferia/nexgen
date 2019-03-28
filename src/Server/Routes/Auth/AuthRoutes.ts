@@ -1,5 +1,5 @@
-import { Router } from 'express';
 import * as passport from 'passport';
+import { Router } from 'express';
 
 const AuthRoute: Router = Router();
 
