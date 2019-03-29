@@ -1,4 +1,4 @@
-import { showCreate, processCreate, listSubjects } from '../../Controller/SubjectController';
+import { showCreate, processCreate, listSubjects, listSubjectsJson } from '../../Controller/SubjectController';
 import { allowOnlyUsers } from '../../Middleware/Gate';
 import { Router } from 'express';
 
@@ -8,5 +8,6 @@ SubjectRoutes.get('/create', allowOnlyUsers, showCreate);
 SubjectRoutes.post('/create', allowOnlyUsers, processCreate);
 
 SubjectRoutes.get('/show', allowOnlyUsers, listSubjects);
+SubjectRoutes.get('/show/json', allowOnlyUsers, listSubjectsJson);
 
 export default SubjectRoutes;

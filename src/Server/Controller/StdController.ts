@@ -33,3 +33,19 @@ export const listSTD = (
         res.render('STD/Show', { documents: document });
     }).catch(console.log);
 };
+
+export const listSTDsJson = (
+    req: Request,
+    res: Response
+) => {
+    return STD.where('user_auth0_id', req.user.id).find().select('name -_id').then(documents => {
+        let document = []
+        documents.forEach((value, index) => {
+            document.push({
+                name: value.name + 'th',
+                value: value.name
+            })
+        });
+        res.json({ success: true, results: document });
+    }).catch(console.log);
+};

@@ -9,6 +9,7 @@ import UserRoutes from './Routes/User/UserRoutes';
 import BoardRoutes from './Routes/Board/BoardRoutes';
 import ModuleRoutes from './Routes/Module/ModuleRoutes';
 import SubjectRoutes from './Routes/Subject/SubjectRoutes';
+import QuestionRoutes from './Routes/Questions/QuestionRoutes';
 
 const app: express.Express = express();
 
@@ -44,5 +45,6 @@ app.use('/user', UserRoutes);
 app.use('/board', BoardRoutes);
 app.use('/module', ModuleRoutes);
 app.use('/subject', SubjectRoutes);
+app.use('/question', QuestionRoutes);
 
 export default app;

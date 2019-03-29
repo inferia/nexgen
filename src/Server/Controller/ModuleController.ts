@@ -33,3 +33,19 @@ export const listModules = (
         res.render('Module/Show', { documents: document });
     }).catch(console.log);
 };
+
+export const listModulesJson = (
+    req: Request,
+    res: Response
+) => {
+    return Module.where('user_auth0_id', req.user.id).find().select('name -_id').then(documents => {
+        let document = []
+        documents.forEach((value, index) => {
+            document.push({
+                name: value.name + ' Marks',
+                value: value.name
+            })
+        });
+        res.json({success: true, results: document});
+    }).catch(console.log);
+};

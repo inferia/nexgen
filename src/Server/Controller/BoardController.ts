@@ -33,3 +33,19 @@ export const listBoards = (
         res.render('Board/Show', { documents: document });
     }).catch(console.log);
 };
+
+export const listBoardsJson = (
+    req: Request,
+    res: Response
+) => {
+    return Board.where('user_auth0_id', req.user.id).find().select('name -_id').then(documents => {
+        let document = []
+        documents.forEach((value, index) => {
+            document.push({
+                name: value.name,
+                value: value.name
+            })
+        });
+        res.json({success: true, results: document});
+    }).catch(console.log);
+};

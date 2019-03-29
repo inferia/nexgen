@@ -1,0 +1,76 @@
+{% extends 'App/Main.twig' %}
+
+{% block content %}
+    <div class="ui one column grid">
+        <div class="column">
+            <div class="ui card fluid">
+                <div class="content">
+                    <div class="ui breadcrumb">
+                        <a class="section" href="/user/dashboard">Dashboard</a>
+                        <i class="right angle icon divider"></i>
+                        <a class="section">Questions</a>
+                        <i class="right angle icon divider"></i>
+                        <div class="active section">Add</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui segment">
+        <form action="/question/create" method="POST" class="ui form">
+            <div class="four fields">
+                <div class="field">
+                    <label for="board">Board</label>
+                    <select name="board" id="board" class="ui dropdown board"></select>
+                </div>
+                <div class="field">
+                    <label for="std">Standard</label>
+                    <select name="std" id="std" class="ui dropdown std"></select>
+                </div>
+                <div class="field">
+                    <label for="module">Module</label>
+                    <select name="module" id="module" class="ui dropdown module"></select>
+                </div>
+                <div class="field">
+                    <label for="subject">Subject</label>
+                    <select name="subject" id="subject" class="ui dropdown subject"></select>
+                </div>
+            </div>
+            <div class="sixteen wide field">
+                <label for="question">Enter Question</label>
+                <input type="text" name="question" placeholder="Question" id="question">
+            </div>
+            <div class="field">
+                <input type="submit" value="Submit" class="ui primary button">
+            </div>
+        </form>
+    </div>
+    <script>
+        localStorage.clear();
+        sessionStorage.clear();
+        $('.ui.dropdown.board').dropdown({
+            apiSettings: {
+                url: '/board/show/json',
+                saveRemoteData: false
+            }
+        });
+        $('.ui.dropdown.std').dropdown({
+            apiSettings: {
+                url: '/std/show/json',
+                saveRemoteData: false
+            }
+        });
+        $('.ui.dropdown.subject').dropdown({
+            apiSettings: {
+                url: '/subject/show/json',
+                saveRemoteData: false
+            }
+        });
+        $('.ui.dropdown.module').dropdown({
+            apiSettings: {
+                url: '/module/show/json',
+                saveRemoteData: false
+            }
+        });
+    </script>
+{% endblock %}
