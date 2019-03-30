@@ -24,3 +24,13 @@ export const processCreate = (
         }).catch(console.log);
     }
 };
+
+export const GenerateQPaperOne = (
+    req: Request,
+    res: Response
+) => res.render('Question/Generate/StepOne');
+
+export const GenerateQPaperTwo = (
+    req: Request,
+    res: Response
+) => res.render('Question/Generate/StepTwo');

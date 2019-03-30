@@ -1,0 +1,62 @@
+{% extends 'App/Main.twig' %}
+
+{% block content %}
+    <div class="ui one column grid">
+        <div class="column">
+            <div class="ui card fluid">
+                <div class="content">
+                    <div class="ui breadcrumb">
+                        <a class="section" href="/user/dashboard">Dashboard</a>
+                        <i class="right angle icon divider"></i>
+                        <a class="section">Question Paper</a>
+                        <i class="right angle icon divider"></i>
+                        <div class="active section">Generate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui ordered tablet stackable steps">
+        <div class="active step">
+            <div class="content">
+                <div class="title">Primary Sorting</div>
+                <div class="description">Select for whome the question paper is to be generated</div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="content">
+                <div class="title">Structure it</div>
+                <div class="description">Tell us how many questions you want from each module</div>
+            </div>
+        </div>
+        <div class="disabled step">
+            <div class="content">
+                <div class="title">Generate and Download</div>
+            </div>
+        </div>
+    </div>
+    <div class="ui segment">
+        <form action="/question/create" method="POST" class="ui form">
+            <div class="three fields">
+                <div class="field">
+                    <label for="board">Board</label>
+                    <select name="board" id="board" class="ui dropdown board"></select>
+                </div>
+                <div class="field">
+                    <label for="std">Standard</label>
+                    <select name="std" id="std" class="ui dropdown std"></select>
+                </div>
+                <div class="field">
+                    <label for="subject">Subject</label>
+                    <select name="subject" id="subject" class="ui dropdown subject"></select>
+                </div>
+            </div>
+            <div class="field">
+                <input type="submit" value="Submit" class="ui primary button">
+            </div>
+        </form>
+    </div>
+    <script>
+        localStorage.clear();sessionStorage.clear();$('.ui.dropdown.board').dropdown({apiSettings:{url:'/board/show/json'}});$('.ui.dropdown.std').dropdown({apiSettings:{url:'/std/show/json'}});$('.ui.dropdown.subject').dropdown({apiSettings:{url: '/subject/show/json'}});
+    </script>
+{% endblock %}
