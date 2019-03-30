@@ -5,9 +5,7 @@ import * as validator from 'validator';
 export const showCreate = (
     req: Request,
     res: Response
-) => {
-    res.render('Board/Create');
-};
+) => res.render('Board/Create');
 
 export const processCreate = (
     req: Request,
@@ -28,24 +26,24 @@ export const processCreate = (
 export const listBoards = (
     req: Request,
     res: Response
-) => {
-    return Board.where('user_auth0_id', req.user.id).find().then(document => {
-        res.render('Board/Show', { documents: document });
-    }).catch(console.log);
-};
+) => Board.where('user_auth0_id', req.user.id)
+    .find()
+    .then(document => res.render('Board/Show', { documents: document }))
+    .catch(console.log);
 
 export const listBoardsJson = (
     req: Request,
     res: Response
-) => {
-    return Board.where('user_auth0_id', req.user.id).find().select('name -_id').then(documents => {
-        let document = []
-        documents.forEach((value, index) => {
+) => Board.where('user_auth0_id', req.user.id)
+    .find()
+    .select('name -_id')
+    .then(documents => {
+        let document = [];
+        documents.forEach(value => {
             document.push({
                 name: value.name,
                 value: value.name
-            })
+            });
         });
-        res.json({success: true, results: document});
+        res.json({ success: true, results: document });
     }).catch(console.log);
-};

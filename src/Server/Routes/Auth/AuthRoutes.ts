@@ -5,9 +5,7 @@ const AuthRoute: Router = Router();
 
 AuthRoute.get('/login', passport.authenticate('auth0', {
     scope: 'openid email profile'
-}), (req, res) => {
-    res.redirect('/');
-});
+}), (req, res) => res.redirect('/'));
 
 AuthRoute.get('/callback',  (req, res, next) => {
     passport.authenticate('auth0', (err, user, info)  => {
