@@ -16,11 +16,11 @@
             </div>
         </div>
     </div>
-    <div class="ui ordered tablet stackable steps">
+    <div class="ui ordered tablet stackable fluid steps">
         <div class="completed step">
             <div class="content">
                 <div class="title">Primary Sorting</div>
-                <div class="description">Select for whome the question paper is to be generated</div>
+                <div class="description">Select for whom the question paper is to be generated</div>
             </div>
         </div>
         <div class="active step">
@@ -35,4 +35,49 @@
             </div>
         </div>
     </div>
+    <div class="ui segment">
+        <form action="" method="post" class="ui form">
+            <div class="fields">
+                <div class="ten wide field">
+                    <select name="module" id="module" class="ui dropdown module" placeholder="Module">
+                        <option value="">Select Module</option>
+                    </select>
+                </div>
+                <div class="three wide field center aligned middle aligned">
+                    <div class="ui button fluid">Add Section</div>
+                </div>
+                <div class="three wide field">
+                    <div class="ui primary fluid button center aligned middle aligned">Submit</div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        localStorage.clear();
+        sessionStorage.clear();
+        $('.ui.dropdown.board').dropdown({
+            apiSettings: {
+                url: '/board/show/json',
+                saveRemoteData: false
+            }
+        });
+        $('.ui.dropdown.std').dropdown({
+            apiSettings: {
+                url: '/std/show/json',
+                saveRemoteData: false
+            }
+        });
+        $('.ui.dropdown.subject').dropdown({
+            apiSettings: {
+                url: '/subject/show/json',
+                saveRemoteData: false
+            }
+        });
+        $('.ui.dropdown.module').dropdown({
+            apiSettings: {
+                url: '/module/show/json',
+                saveRemoteData: false
+            }
+        });
+    </script>
 {% endblock %}
